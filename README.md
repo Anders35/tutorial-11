@@ -15,33 +15,33 @@
 2. 
 First, I change the strategy in the deployment.yaml file to recreate, then apply the deployment file.
 
-Before:
-![](assets/strategy-before.png)
+Before:<br>
+![](assets/strategy-before.png)<br>
 
-After:
-![](assets/strategy-after.png)
+After:<br>
+![](assets/strategy-after.png)<br>
 
 Next, I remove automatically generated metadata such as creationTimestamp, resourceVersion, selfLink, and uid, which should not be present in declarative configuration files.
 
-Before:
-![](assets/metadata-before.png)
-![](assets/template-before.png)
+Before:<br>
+![](assets/metadata-before.png)<br>
+![](assets/template-before.png)<br>
 
-After:
-![](assets/metadata-after.png)
-![](assets/template-after.png)
+After:<br>
+![](assets/metadata-after.png)<br>
+![](assets/template-after.png)<br>
 
 I also change the application version from 3.2.1 back to 3.0.2 to observe the deployment action.
 
-![](assets/image-version.png)
+![](assets/image-version.png)<br>
 
 Apply the changes using the `kubectl apply -f deployment.yaml` command. The existing pods will be deleted and new pods will be created with the latest version of the application.
 
-![](assets/recreate.png)
+![](assets/recreate.png)<br>
 
 The recreate strategy removes all old pods and creates 4 new pods with the latest version of the application.
 
-![](assets/logs.png)
+![](assets/logs.png)<br>
 
 3. It's in `deployment-recreate.yaml`.
 
